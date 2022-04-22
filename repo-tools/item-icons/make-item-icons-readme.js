@@ -20,27 +20,38 @@ const README_FILENAME = "README.md"
 		return accumulator
 	}, [])
 
-	let readMeContent = '';
+	let readMeContent = '# Item Icons\n\n';
 
 	// just use first directories for now for testing
 	//temp = [categoryDirectories[0], categoryDirectories[1]];
+	var flag = true;
     for (const directory of categoryDirectories) {
-	//for (const directory of temp) {
-        console.log(directory);
+		var directoryReadMe = '';		
         const files = await fs.readdir(ROOT_DIR + "/" + directory);
 		//clean up the filenames
 		const cleanFileNames = files.filter(x => !x.toLowerCase().includes('readme'));
 
-		readMeContent += '\n\n\n';
-
+		readMeContent += `## [${directory}](${encodeURI(directory)})\n\n`
+		if (flag) {
+			flag = false;
+			readMeContent += `<details open>\n`
+		}
+		else {
+			readMeContent += `<details>\n`
+		}
+		readMeContent += `<summary>click to expand</summary>\n\n`
 		for (const file of cleanFileNames) {
 			var fileName = file;
 			var filepath= `${ROOT_DIR_SLUG}/${directory}/${fileName}`;
 			var uri= encodeURI(`${ASSET_URL}/${filepath}`).replace("+", "%2B");
 			var gitPath = await gitio(uri);
 
+			directoryReadMe += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
 			readMeContent += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
 		}
+		readMeContent += `\n</details>\n\n`
+
+		fs.writeFile(`${ROOT_DIR}/${directory}/${README_FILENAME}`, directoryReadMe);
     }
 
 	fs.writeFile(`${ROOT_DIR}/${README_FILENAME}`, readMeContent);
