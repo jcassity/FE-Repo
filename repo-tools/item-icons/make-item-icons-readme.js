@@ -42,12 +42,15 @@ const README_FILENAME = "README.md"
 		readMeContent += `<summary>click to expand</summary>\n\n`
 		for (const file of cleanFileNames) {
 			var fileName = file;
-			var filepath= `${ROOT_DIR_SLUG}/${directory}/${fileName}`;
-			var uri= encodeURI(`${ASSET_URL}/${filepath}`).replace("+", "%2B");
-			var gitPath = await gitio(uri);
+			let type = file.split('.').pop();
+        	if (type === "jpg" || type === "jpeg" || type === "png") {
+				var filepath= `${ROOT_DIR_SLUG}/${directory}/${fileName}`;
+				var uri= encodeURI(`${ASSET_URL}/${filepath}`).replace("+", "%2B");
+				var gitPath = await gitio(uri);
 
-			directoryReadMe += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
-			readMeContent += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
+				directoryReadMe += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
+				readMeContent += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
+			}
 		}
 		readMeContent += `\n</details>\n\n`
 
