@@ -51,7 +51,7 @@ const generateDirectoryReadMe = async (directoryName) => {
     let directoryReadMe = "# BGs, Interface Elements\n\n";
 
     for (const directory of subDirectories) {
-        directoryReadMe += `## [${directory}](${encodeURI(directory)})\n\n`
+        directoryReadMe += `## [${directory}](${encodeURI(`${directoryName}/${directory}`)})\n\n`
         directoryReadMe += `<details><summary>Click to expand!</summary>\n\n`;
         directoryReadMe += await generateDirectoryReadMe(`${directoryName}/${directory}`);
         directoryReadMe += `\n\n</details>\n\n`;
