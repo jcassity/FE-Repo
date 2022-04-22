@@ -25,7 +25,7 @@ const searchBgsIE = async () => {
     for (const directory of categoryDirectories) {
         readMeContent += `## [${directory}](${encodeURI(directory)})\n\n`
         readMeContent += `<details><summary>Click to expand!</summary>\n\n`;
-        readMeContent += await generateDirectoryReadMe(`${ROOT_DIR_SLUG}/${directory}`);
+        readMeContent += await generateDirectoryReadMe(`${ROOT_DIR_SLUG}/${directory}`, directory);
         readMeContent += `\n\n</details>\n\n`;
     }
     
@@ -35,7 +35,7 @@ const searchBgsIE = async () => {
 /**
  * Recursive function used to generate a read me and add to the root read me for each directory 
  */
-const generateDirectoryReadMe = async (directoryName) => {
+const generateDirectoryReadMe = async (directoryName, name) => {
     let directoryFiles = await fs.readdir(directoryName, { withFileTypes: true })
 	let subDirectories = directoryFiles.reduce((accumulator, categoryFile) => {
 		if (categoryFile.isDirectory()) accumulator.push(categoryFile.name)
@@ -48,12 +48,12 @@ const generateDirectoryReadMe = async (directoryName) => {
 
     var cleanFileNames = files.filter(x => !x.toLowerCase().includes('readme'));
 
-    let directoryReadMe = `# ${directoryName}\n\n`;
+    let directoryReadMe = `# ${name}\n\n`;
 
     for (const directory of subDirectories) {
-        directoryReadMe += `## [${directory}](${encodeURI(`./${directoryName}/${directory}`)})\n\n`
+        directoryReadMe += `## [${directory}](${encodeURI(`${name}/${directory}`)})\n\n`
         directoryReadMe += `<details><summary>Click to expand!</summary>\n\n`;
-        directoryReadMe += await generateDirectoryReadMe(`${directoryName}/${directory}`);
+        directoryReadMe += await generateDirectoryReadMe(`${directoryName}/${directory}`, directory);
         directoryReadMe += `\n\n</details>\n\n`;
     }
 

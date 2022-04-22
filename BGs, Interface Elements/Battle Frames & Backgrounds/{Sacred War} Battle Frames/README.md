@@ -1,3 +1,3 @@
-# BGs, Interface Elements/Battle Frames & Backgrounds/{Sacred War} Battle Frames
+# {Sacred War} Battle Frames
 
 ![Battle Frame Image (Hex)](https://raw.githubusercontent.com/Klokinator/FE-Repo/main/BGs,%20Interface%20Elements/Battle%20Frames%20&%20Backgrounds/%7BSacred%20War%7D%20Battle%20Frames/Battle%20Frame%20Image%20(Hex) "Battle Frame Image (Hex)")![Battle Frame TSA (Hex)](https://raw.githubusercontent.com/Klokinator/FE-Repo/main/BGs,%20Interface%20Elements/Battle%20Frames%20&%20Backgrounds/%7BSacred%20War%7D%20Battle%20Frames/Battle%20Frame%20TSA%20(Hex) "Battle Frame TSA (Hex)")
