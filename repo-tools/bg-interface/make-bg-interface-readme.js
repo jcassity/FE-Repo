@@ -20,7 +20,7 @@ const searchBgsIE = async () => {
 		return accumulator
 	}, [])
 
-    var readMeContent = "";
+    var readMeContent = "# BGs, Interface Elements\n\n";
 
     for (const directory of categoryDirectories) {
         readMeContent += `## [${directory}](${encodeURI(directory)})\n\n`
@@ -48,10 +48,10 @@ const generateDirectoryReadMe = async (directoryName) => {
 
     var cleanFileNames = files.filter(x => !x.toLowerCase().includes('readme'));
 
-    let directoryReadMe = "# BGs, Interface Elements\n\n";
+    let directoryReadMe = `# ${directoryName}\n\n`;
 
     for (const directory of subDirectories) {
-        directoryReadMe += `## [${directory}](${encodeURI(`${directoryName}/${directory}`)})\n\n`
+        directoryReadMe += `## [${directory}](${encodeURI(`./${directoryName}/${directory}`)})\n\n`
         directoryReadMe += `<details><summary>Click to expand!</summary>\n\n`;
         directoryReadMe += await generateDirectoryReadMe(`${directoryName}/${directory}`);
         directoryReadMe += `\n\n</details>\n\n`;

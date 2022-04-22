@@ -1,10 +1,10 @@
-# BGs, Interface Elements
+# BGs, Interface Elements/Status Screen Backgrounds/Stat Screen Blitz 1
 
-## [Statscreen Allegiance](BGs,%20Interface%20Elements/Status%20Screen%20Backgrounds/Stat%20Screen%20Blitz%201/Statscreen%20Allegiance)
+## [Statscreen Allegiance](./BGs,%20Interface%20Elements/Status%20Screen%20Backgrounds/Stat%20Screen%20Blitz%201/Statscreen%20Allegiance)
 
 <details><summary>Click to expand!</summary>
 
-# BGs, Interface Elements
+# BGs, Interface Elements/Status Screen Backgrounds/Stat Screen Blitz 1/Statscreen Allegiance
 
 ![glowy_gone.bin](https://raw.githubusercontent.com/Klokinator/FE-Repo/main/BGs,%20Interface%20Elements/Status%20Screen%20Backgrounds/Stat%20Screen%20Blitz%201/Statscreen%20Allegiance/glowy_gone.bin "glowy_gone.bin")![installer.event](https://raw.githubusercontent.com/Klokinator/FE-Repo/main/BGs,%20Interface%20Elements/Status%20Screen%20Backgrounds/Stat%20Screen%20Blitz%201/Statscreen%20Allegiance/installer.event "installer.event")![statscreen_comp.bin](https://raw.githubusercontent.com/Klokinator/FE-Repo/main/BGs,%20Interface%20Elements/Status%20Screen%20Backgrounds/Stat%20Screen%20Blitz%201/Statscreen%20Allegiance/statscreen_comp.bin "statscreen_comp.bin")![statscreen_pal.bin](https://raw.githubusercontent.com/Klokinator/FE-Repo/main/BGs,%20Interface%20Elements/Status%20Screen%20Backgrounds/Stat%20Screen%20Blitz%201/Statscreen%20Allegiance/statscreen_pal.bin "statscreen_pal.bin")![statscreen_tsa.bin](https://raw.githubusercontent.com/Klokinator/FE-Repo/main/BGs,%20Interface%20Elements/Status%20Screen%20Backgrounds/Stat%20Screen%20Blitz%201/Statscreen%20Allegiance/statscreen_tsa.bin "statscreen_tsa.bin")
 
