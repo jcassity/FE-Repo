@@ -1,25 +1,25 @@
 const fs = require("fs").promises
 const path = require('path');
 
-const ROOT_DIR_SLUG = "Item Icons"
+const ROOT_DIR_SLUG = "Class Cards"
 const ROOT_DIR = "./" + ROOT_DIR_SLUG
 const REPO_URL = "https://github.com/Klokinator/FE-Repo/tree/main"
 const ASSET_URL = "https://raw.githubusercontent.com/Klokinator/FE-Repo/main"
 const README_FILENAME = "README.md"
 
 /**
- * Parses the "Item Icons" dirs and gathers all the Icons in a flat list.
+ * Parses the "Class Cards" dirs and gathers all the Icons in a flat list.
  *
  * @returns {Object[]}
  */
- const searchIcons = async () => {
-	const itemIconFiles = await fs.readdir(ROOT_DIR, { withFileTypes: true })
-	const categoryDirectories = itemIconFiles.reduce((accumulator, categoryFile) => {
+ const searchClassCards = async () => {
+	const classCardFiles = await fs.readdir(ROOT_DIR, { withFileTypes: true })
+	const categoryDirectories = classCardFiles.reduce((accumulator, categoryFile) => {
 		if (categoryFile.isDirectory()) accumulator.push(categoryFile.name)
 		return accumulator
 	}, [])
 
-	let readMeContent = '# Item Icons\n\n';
+	let readMeContent = '# Class Cards\n\n';
 
 	var flag = true;
     for (const directory of categoryDirectories) {
@@ -56,4 +56,4 @@ const README_FILENAME = "README.md"
 	fs.writeFile(`${ROOT_DIR}/${README_FILENAME}`, readMeContent);
 }
 
-searchIcons()
+searchClassCards()
