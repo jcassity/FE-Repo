@@ -1,6 +1,5 @@
 const fs = require("fs").promises
 const path = require('path');
-const { logMissingFile, hasFile, gitio } = require("../utilities")
 
 const ROOT_DIR_SLUG = "Item Icons"
 const ROOT_DIR = "./" + ROOT_DIR_SLUG
@@ -46,10 +45,9 @@ const README_FILENAME = "README.md"
         	if (type === "jpg" || type === "jpeg" || type === "png") {
 				var filepath= `${ROOT_DIR_SLUG}/${directory}/${fileName}`;
 				var uri= encodeURI(`${ASSET_URL}/${filepath}`).replace("+", "%2B");
-				var gitPath = await gitio(uri);
 
-				directoryReadMe += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
-				readMeContent += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
+				directoryReadMe += `![${fileName}](${uri || directory + "/" + filepath} "${fileName}")`;
+				readMeContent += `![${fileName}](${uri || directory + "/" + filepath} "${fileName}")`;
 			}
 		}
 		readMeContent += `\n</details>\n\n`

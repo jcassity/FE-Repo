@@ -1,6 +1,5 @@
 const fs = require("fs").promises
 const path = require('path');
-const { logMissingFile, hasFile, gitio } = require("../utilities")
 
 const ROOT_DIR_SLUG = "Maps"
 const ROOT_DIR = "./" + ROOT_DIR_SLUG
@@ -65,10 +64,9 @@ const generateDirectoryReadMe = async (directoryName, name) => {
         if (type === "jpg" || type === "jpeg" || type === "png") {
             var filepath= `${directoryName}/${fileName}`;
             var uri= encodeURI(`${ASSET_URL}/${filepath}`).replace("+", "%2B");
-            var gitPath = await gitio(uri);
     
-            directoryReadMe += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
-            returnReadMe += `![${fileName}](${gitPath || uri || directory + "/" + filepath} "${fileName}")`;
+            directoryReadMe += `![${fileName}](${uri || directory + "/" + filepath} "${fileName}")`;
+            returnReadMe += `![${fileName}](${uri || directory + "/" + filepath} "${fileName}")`;
         }
     }
 
