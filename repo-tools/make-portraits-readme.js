@@ -20,7 +20,7 @@ const searchPortraits = async () => {
 	}, [])
 
     var readMeContent = "# Portraits\n\n";
-
+    categoryDirectories.shift();
     for (const directory of categoryDirectories) {
         readMeContent += `## [${directory}](${encodeURI(directory)})\n\n`
         readMeContent += `<details><summary>Click to expand!</summary>\n\n`;
