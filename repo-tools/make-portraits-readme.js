@@ -47,14 +47,18 @@ const generateDirectoryReadMe = async (directoryName, name) => {
 
     var cleanFileNames = files.filter(x => !x.toLowerCase().includes('readme'));
 
-    let directoryReadMe, returnReadMe = `# ${name}\n\n`;
+    let directoryReadMe = `# ${name}\n\n`;
+    let returnReadMe = `# ${name}\n\n`;
 
     for (const directory of subDirectories) {
         directoryReadMe += `## [${directory}](${encodeURI(`${directory}`)})\n\n`;
         returnReadMe += `## [${directory}](${encodeURI(`${name}/${directory}`)})\n\n`;
-        directoryReadMe, returnReadMe += `<details><summary>Click to expand!</summary>\n\n`;
-        directoryReadMe, returnReadMe += await generateDirectoryReadMe(`${directoryName}/${directory}`, `${name}/${directory}`);
-        directoryReadMe, returnReadMe += `\n\n</details>\n\n`;
+        directoryReadMe += `<details><summary>Click to expand!</summary>\n\n`;
+        returnReadMe += `<details><summary>Click to expand!</summary>\n\n`;
+        directoryReadMe += await generateDirectoryReadMe(`${directoryName}/${directory}`, `${name}/${directory}`);
+        returnReadMe += await generateDirectoryReadMe(`${directoryName}/${directory}`, `${name}/${directory}`);
+        directoryReadMe += `\n\n</details>\n\n`;
+        returnReadMe += `\n\n</details>\n\n`;
     }
 
     for (const file of cleanFileNames) {
